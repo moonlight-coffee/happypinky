@@ -29,7 +29,6 @@ hope you like it ^^
 
 	
 <p align="center">
-	
 	<img src="https://user-images.githubusercontent.com/98967930/155154361-a3abd8c2-12c3-4569-87c4-06516d52f2c2.png" alt="ss_preview" align="right" width="450px">
 	</p>
 	
