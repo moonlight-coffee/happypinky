@@ -1,1 +1,40 @@
+! special
+*.foreground:   #D9E0EE
+*.background:   #1a1826
+*.cursorColor:  #d9d7d6
+
+
+#: The 16 terminal colors
+
+#: black
+color0 #6E6C7E
+color8 #988BA2
+
+#: red
+color1 #F28FAD
+color9 #F28FAD
+
+#: green
+color2  #ABE9B3
+color10 #ABE9B3
+
+#: yellow
+color3  #FAE3B0
+color11 #FAE3B0
+
+#: blue
+color4  #96CDFB
+color12 #96CDFB
+
+#: magenta
+color5  #F5C2E7
+color13 #F5C2E7
+
+#: cyan
+color6  #89DCEB
+color14 #89DCEB
+
+#: white
+color7  #D9E0EE
+color15 #D9E0EE
 
