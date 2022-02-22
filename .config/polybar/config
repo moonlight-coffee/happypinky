@@ -1,0 +1,289 @@
+include-file = ~/.config/polybar/colors.ini
+[colors]
+background = #0d101b
+foreground = #f8f8f0
+primary = #1b9fc6
+secondary = #ffffff
+alert = #bd2c40
+
+[bar/main]
+width = 99%
+height = 35 
+offset-x = 0.5%
+offset-y = 5
+fixed-center = true
+background = #1A1826
+foreground = ${colors.foreground}
+override-redirect = true
+
+line-size = 3
+line-color = #262626
+
+border-size = 5
+border-color = #1A1826
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 0
+module-margin-right = 
+
+font-0 = "Iosevka:pixelsize=13;4"
+font-1 = "Caskaydia Cove Nerd Font Complete Mono:pixelsize=19;3"
+font-2 = "feather:style=Regular:pixelsize=14;4"
+font-3 = "Caskaydia Cove Nerd Font Complete:style=Regular:pixelsize=18;4"
+modules-left = gap ws
+modules-center = 
+modules-right = pulseaudio gap backlight gap battery  gap gap wifis gap wireless-network gap  clocklogo time  gap date gap sysmenu gap
+
+wm-restack = bspwm
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/sysmenu]
+type = custom/text
+content = ""
+content-background = #a5ffe1
+content-foreground = #1A1826
+content-padding = 1
+click-left = ~/.scripts/Rofi/powermenu.sh &
+
+[module/logos]
+type = custom/text
+content = ""
+content-background = #a5ffe1
+content-foreground = #1A1826
+content-padding = 1
+click-left = ~/.scripts/Rofi/powermenu.sh &
+
+[module/backlight]
+type = internal/backlight
+
+card = intel_backlight
+
+use-actual-brightness = true
+
+enable-scroll = true
+
+format = "<label>"
+format-prefix = "  "
+format-prefix-foreground = #1A1826
+format-prefix-background = #FAE3B0
+label =  " %percentage%% "
+label-foreground = #FAE3B0
+label-background = #1A1826
+
+
+
+[module/ws]
+type = internal/xworkspaces
+enable-scroll = false
+label-active = %icon%
+label-active-foreground = #F5C2E7
+#label-active-background = #97bbf7
+label-active-underline = #F5C2E7
+label-active-padding = 2
+
+label-occupied = %icon% 
+label-occupied-underline = ${colors.background-alt}
+label-occupied-padding = 2 
+label-occupied-foreground = #B5E8E0
+
+label-empty = %icon%
+label-empty-foreground = #575268
+label-empty-padding = 2
+
+icon-0 = 1;
+icon-1 = 2;
+icon-2 = 3;
+icon-3 = 4;
+icon-4 = 5;
+
+[module/mpd]
+type = internal/mpd
+
+host = 127.0.0.1
+port = 6600
+
+interval = 2
+
+
+; Available tags:
+;   <label-song> (default)
+;   <label-time>
+;   <bar-progress>
+;   <toggle> - gets replaced with <icon-(pause|play)>
+;   <toggle-stop> - gets replaced with <icon-(stop|play)>
+;   <icon-random>
+;   <icon-repeat>
+;   <icon-repeatone>
+;   <icon-consume>
+;   <icon-prev>
+;   <icon-stop>
+;   <icon-play>
+;   <icon-pause>
+;   <icon-next>
+;   <icon-seekb>
+;   <icon-seekf>
+format-online = " <icon-prev> <icon-stop> <toggle> <icon-seekf> <icon-next> <label-song> <label-time>"
+label-online-background = #555673
+format-playing = ${self.format-online}
+format-paused = ${self.format-online}
+format-stopped = ${self.format-online}
+; Available tags:
+;   <label-offline>
+format-offline = <label-offline>
+
+; Available tokens:
+;   %artist%
+;   %album-artist%
+;   %album%
+;   %date%
+;   %title%
+; Default: %artist% - %title%
+label-song = " "
+label-song-foreground = #8da3b9
+; Available tokens:
+;   %elapsed%
+;   %total%
+; Default: %elapsed%/%total%
+label-time =" %elapsed%/%total% "   
+label-time-background = #866c83
+label-time-foreground = #151515
+; Available tokens:
+;   None
+label-offline =  offline
+
+; Only applies if <icon-X> is used
+icon-play = 
+icon-pause = 
+icon-stop = ⏹
+icon-prev = 
+icon-next = 
+icon-seekb = ⏪
+icon-seekf = ⏩
+icon-random = 
+icon-repeat = 
+icon-repeatone = s
+icon-consume = ✀
+
+; Used to display the state of random/repeat/repeatone
+; Only applies if <icon-[random|repeat|repeatone]> is used
+toggle-on-foreground = #151515
+toggle-off-foreground = #151515
+
+; Only applies if <bar-progress> is used
+bar-progress-width = 10
+bar-progress-indicator = 
+bar-progress-fill = ─
+bar-progress-empty = ─
+
+
+
+[module/date]
+type = internal/date
+interval = 1
+format-foreground = #E8A2AF
+
+date = " %a %d/%m"
+format-prefix = "  " 
+format-prefix-foreground = #1A1826
+format-prefix-background = #E8A2AF
+format-padding = 1
+
+label = %date%
+
+[module/time]
+type = internal/date
+interval = 1
+timea-alt = "%I:%M %p"
+time = %H:%M
+
+format-prefix = "" 
+format-foreground = #1A1826
+format-background = #89DCEB
+format-padding = 1
+
+label = %time%
+
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <label-volume>
+label-volume =  %percentage%%
+label-volume-foreground = #DDB6F2
+label-volume-background = #1A1826
+label-volume-padding = 1
+
+label-muted =  "    "
+label-muted-background = #c8bb97
+label-muted-foreground = #2c2c2c
+label-muted-padding = 1
+
+[module/battery]
+type = internal/battery
+label-charging = "  %percentage%% "
+label-charging-foreground = #1A1826
+label-charging-background = #ABE9B3
+label-discharging-foreground = #1A1826
+label-discharging-background = #ABE9B3
+label-discharging = "  %percentage%% "
+label-full = "  %percentage%% " 
+label-full-foreground = #1A1826
+label-full-background = #ABE9B3
+#format-full-prefix = %{T3} 
+#format-full-prefix-foreground = #dfe2ed
+#format-full-prefix-background = #809984
+
+[module/wireless-network]
+type = internal/network
+click-left = ~/.scripts/Rofi/powermenu.sh &
+interface = wlp2s0
+interval = 3.0
+udspeed-minwidth = 0
+format-connected = <label-connected> 
+format-disconnected = <label-disconnected>
+label-connected = "%essid% "
+label-connected-background = #1A1826
+label-connected-foreground= #F2CDCD
+;label-connected-background = ${color.alternate}
+label-disconnected =  " offline  "
+label-disconnected-foreground = #F8BD96
+
+
+[module/wifis]
+type = custom/text
+content = "  "
+content-foreground = #1A1826
+content-background = #F2CDCD
+
+[module/clocklogo]
+type = custom/text
+content = "  "
+content-foreground = #1A1826
+content-background = #89DCEB
+
+[module/gap]
+type = custom/text
+content = " "
+
+[module/batte]
+type = custom/text
+content = "   "
+content-foreground = #58b6ca
+
+[module/logo] 
+type = custom/text 
+content = "  " 
+content-foreground = ##1A1826
+content-background = #F5C2E7
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 5
+
+; vim:ft=dosini
