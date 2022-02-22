@@ -18,7 +18,8 @@
     </a>
 </div>
 	    
-### Sup!
+### Sup!!
+
 thanks for dropping by 
 	
 welcome to my dotfiles, these are personal config files of bspwm, with catppuccin theme. 
@@ -28,7 +29,8 @@ hope you like it ^^
 
 	
 <p align="center">
-	<img src="https://user-images.githubusercontent.com/72156551/154124275-9f96db2c-7cbe-4c5f-94d8-f4369e38d5f4.png" alt="ss_preview" align="right" width="450px">
+	
+	<img src="https://user-images.githubusercontent.com/98967930/155154361-a3abd8c2-12c3-4569-87c4-06516d52f2c2.png" alt="ss_preview" align="right" width="450px">
 	</p>
 	
 **important things~**
