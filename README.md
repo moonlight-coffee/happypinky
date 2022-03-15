@@ -45,6 +45,3 @@ hope you like it ^^
 
 <!-- ## Screenshots 🖼️ -->
 
-## credits
-thanks for help
-saimmomedits - https://github.com/saimoomedits
